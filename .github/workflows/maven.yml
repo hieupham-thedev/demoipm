@@ -1,6 +1,9 @@
 name: Spring boot Hello World
 
-on: [push]
+on:
+  push:
+    branches:
+      - heroku_deployment
 
 jobs:
   build:
