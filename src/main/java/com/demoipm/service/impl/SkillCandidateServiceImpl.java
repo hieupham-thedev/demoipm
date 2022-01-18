@@ -33,7 +33,7 @@ public class SkillCandidateServiceImpl implements SkillCandidateService {
 
 		Optional<SkillCandidate> skillCandidate = skillCandidateDao.findById(id);
 		SkillCandidateDto skillCandidateDto = null;
-		if (skillCandidate.isEmpty()) {
+		if (!skillCandidate.isPresent()) {
 			throw new Exception("The id doesn't exists");
 		} else {
 			skillCandidateDto = new SkillCandidateDto(skillCandidate.get());
