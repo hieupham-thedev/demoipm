@@ -172,7 +172,7 @@ public class UserAppServiceImpl implements UserAppService, UserDetailsService {
             // Get search, paging condition
             Integer pageNo = request.getStart() / request.getLength();
             Integer entriesNo = request.getLength();
-            String searchWord = request.getSearch().getValue();
+            String searchWord = "%" + request.getSearch().getValue() + "%";
 
             // Get data from database with pagination and search word
             Pageable pageable = PageRequest.of(pageNo, entriesNo, Sort.Direction.ASC, "username");

@@ -13,9 +13,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.SortableField;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.demoipm.dto.UserAppDto;
@@ -24,7 +21,6 @@ import com.demoipm.dto.UserAppDto;
 @Table(name = "user_app")
 @SQLDelete(sql = "UPDATE user_app SET is_delete = true WHERE user_id = ?")
 @Where(clause = "is_delete = false")
-@Indexed
 public class UserApp extends BaseEntity {
 
 	@Id
@@ -32,20 +28,15 @@ public class UserApp extends BaseEntity {
 	@Column(name = "user_id")
 	private int id;
 
-	@Field
 	@Column(name = "full_name")
 	private String fullName;
 
-	@Field
 	@Column(name = "phone")
 	private String phone;
 
-	@Field
 	@Column(name = "email")
 	private String email;
 
-	@Field
-    @SortableField
 	@Column(name = "username")
 	private String username;
 	
